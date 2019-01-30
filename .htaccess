@@ -1,0 +1,27 @@
+# INDIAN timezone
+SetEnv TZ Asia/Kolkata
+
+ErrorDocument 404 /nita/error/404.php
+ErrorDocument 403 /nita/error/403.php
+ErrorDocument 500 /nita/error/500.php
+
+#Alternate default index page
+DirectoryIndex login.php
+
+RewriteEngine On
+# RewriteCond %{HTTP_HOST} ^localhost:81 [NC]
+
+# RewriteRule notices.php
+# RewriteRule ^paper.php/(.*)/(.*)$ paper.php?exam_code=$1&sec_id=$2 [NC]
+# RewriteRule ^paper.php/(.*)/(.*)/$ paper.php?exam_code=$1&sec_id=$2 [NC]
+
+# RewriteRule ^notices.php/(.*)/(.*)$ notices.php?type=$1&page=$2 [NC]
+# RewriteRule ^notices.php/(.*)/(.*)/$ notices.php?type=$1&page=$2 [NC]
+
+# remove php file extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+# Deny Directory Listing Permission
+Options -Indexes

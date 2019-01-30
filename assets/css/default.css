@@ -1,0 +1,42 @@
+@font-face {
+  font-family: GlacialIndifference-Regular;
+  src: url("../fonts/ACD55.otf") format("opentype");
+}
+:root {
+  --font-1: ACD55, sans-serif;
+  font-size: 16px;
+}
+
+html, body {
+  font-family: var(--font-1);
+}
+
+button {
+  outline: none !important;
+}
+
+.no-pad {
+  padding: 0;
+}
+
+.link-button {
+  text-transform: uppercase;
+  color: #141516;
+  border: 1px solid #141516;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.link-button:hover {
+  color: #fff;
+  background-color: #141516;
+  text-decoration: none;
+}
+
+.img-res-height {
+  height: 100%;
+  width: auto;
+}
