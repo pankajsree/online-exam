@@ -124,56 +124,62 @@
         <title>Edit Profile</title>
         <meta name="author" content="Pankajsree Das">
         <?= $head ?>
+        <link rel="stylesheet" href="../../assets/css/admin.css" />
         <link rel="stylesheet" href="../../assets/css/form.css" />
     </head>
     <body>
-        <div class="container">
-            <h1><span class="b-b-theme-thick">Add User</span></h1>
-            <form id="add-form" method="post" action="section-details">
-                <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
-                <input type="hidden" name="exam_code" value="<?= $e_code ?>" />
-                <input type="hidden" name="sec_count" value="<?= $sec_count ?>" />
+        <?= $header ?>
+        <main>
+            <div class="container">
+                <h1 class="mid-line"><span class="text">Section Details</span></h1>
+                <form id="add-form" method="post" action="section-details">
+                    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
+                    <input type="hidden" name="exam_code" value="<?= $e_code ?>" />
+                    <input type="hidden" name="sec_count" value="<?= $sec_count ?>" />
 
-                <?php
-                    for($i = 1; $i <= $sec_count; $i ++) {
-                ?>
+                    <?php
+                        for($i = 1; $i <= $sec_count; $i ++) {
+                    ?>
 
-                <div class="sec-indv">
-                    <h2>Section <?= $i ?></h2>
-                    <div class="row">
-                        <div class="col-12"><input type="text" id="sec_id_<?= $i ?>" name="sec_id_<?= $i ?>" placeholder="Section ID" required /></div>
+                    <div class="sec-indv">
+                        <h2>
+                            <span class="pad-h-1 b-b-black">Section <?= $i ?></span>
+                        </h2>
+                        <div class="row">
+                            <div class="col-12"><input type="text" id="sec_id_<?= $i ?>" name="sec_id_<?= $i ?>" placeholder="Section ID" required /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12"><input type="text" id="sec_name_<?= $i ?>" name="sec_name_<?= $i ?>" placeholder="Section Name" required /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12"><input type="text" id="tot_ques_<?= $i ?>" name="tot_ques_<?= $i ?>" placeholder="Total Questions" required /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12"><input type="text" id="time_mins_<?= $i ?>" name="time_mins_<?= $i ?>" placeholder="Total Time(in mins)" required /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12"><input type="text" id="positive_<?= $i ?>" name="positive_<?= $i ?>" placeholder="Positive" required /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12"><input type="text" id="negative_<?= $i ?>" name="negative_<?= $i ?>" placeholder="Negative" required /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12"><textarea name="note_<?= $i ?>" id="note_<?= $i ?>" rows="3" placeholder="Notes about the section(if any)"></textarea></div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12"><input type="text" id="sec_name_<?= $i ?>" name="sec_name_<?= $i ?>" placeholder="Section Name" required /></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12"><input type="text" id="tot_ques_<?= $i ?>" name="tot_ques_<?= $i ?>" placeholder="Total Questions" required /></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12"><input type="text" id="time_mins_<?= $i ?>" name="time_mins_<?= $i ?>" placeholder="Total Time(in mins)" required /></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12"><input type="text" id="positive_<?= $i ?>" name="positive_<?= $i ?>" placeholder="Positive" required /></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12"><input type="text" id="negative_<?= $i ?>" name="negative_<?= $i ?>" placeholder="Negative" required /></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12"><textarea name="note_<?= $i ?>" id="note_<?= $i ?>" rows="3" placeholder="Notes about the section(if any)"></textarea></div>
-                    </div>
-                </div>
 
-                <?php
-                    }
-                ?>
+                    <?php
+                        }
+                    ?>
 
-                <div class="row">
-                    <div class="col-12 text-right">
-                        <input type="submit" value="Add User" />
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <input type="submit" class="link-button" value="Add Section Details" />
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </main>
 
         <?= $script ?>
     </body>

@@ -68,14 +68,15 @@
         <meta name="author" content="Pankajsree Das">
 
         <?= $head ?>
+        <link rel="stylesheet" href="../assets/css/admin.css" />
         <link rel="stylesheet" href="../assets/css/form.css" />
 
     </head>
     <body>
-
+        <?= $header ?>
         <main>
-            <h1 class="text-center mar-btm-1"><span class="b-b-theme-thick-center">Admin Login</span></h1>
             <div class="container">
+                <h1 class="mid-line"><span class="text">Admin Login</span></h1>
                 <form id="form-login" action="login.php" method="post">
                     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
                     <div class="row">
@@ -94,8 +95,8 @@
                         </div>
                     </div>
                     <div class="row b-b-theme-normal pad-btm-1">
-                        <div class="col-12">
-                            <input type="submit" class="d-inline-block float-right" name="submit" value="Login" />
+                        <div class="col-12 text-right">
+                            <input type="submit" class="link-button" name="submit" value="Login" />
                         </div>
                     </div>
                     <div class="pad-left-1 underline-links">

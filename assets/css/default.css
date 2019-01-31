@@ -1,14 +1,95 @@
 @font-face {
-  font-family: GlacialIndifference-Regular;
+  font-family: ACD55;
   src: url("../fonts/ACD55.otf") format("opentype");
 }
+@font-face {
+  font-family: GlacialIndifference-Regular;
+  src: url("../fonts/GlacialIndifference-Regular.otf") format("opentype");
+}
 :root {
-  --font-1: ACD55, sans-serif;
+  --font-1: ACD55, serif;
+  --font-2: GlacialIndifference-Regular, sans-serif;
   font-size: 16px;
 }
 
 html, body {
+  font-family: var(--font-2);
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-1);
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mid-line {
+  position: relative;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.mid-line:after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  width: 80%;
+  height: 1px;
+  background-color: #111;
+  z-index: -1;
+}
+
+.mid-line .text {
+  background-color: #fff;
+  padding: 0 2rem;
+}
+
+.mar-top-2 {
+  margin-top: 2rem;
+}
+
+.b-b-black {
+  border-bottom: 1px solid #000;
+}
+
+.pad-h-1 {
+  padding: 0 1rem;
+}
+
+header {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+}
+header #header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+header img {
+  height: 4.2rem;
+  width: auto;
+}
+header .candi-det {
+  display: inline-block;
+}
+header .candi-det .label {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: bold;
+}
+header .candi-det #candi-name, header .candi-det #candi-enroll {
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+header .candi-det #time-left {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
 }
 
 button {
@@ -36,7 +117,18 @@ button {
   text-decoration: none;
 }
 
+.link-button:disabled {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+
 .img-res-height {
   height: 100%;
   width: auto;
+}
+
+.align-items-center {
+  align-items: center;
 }

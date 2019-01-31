@@ -97,27 +97,29 @@
         <title>Add Admin</title>
         <meta name="author" content="Pankajsree Das">
         <?= $head ?>
+        <link rel="stylesheet" href="../assets/css/admin.css" />
         <link rel="stylesheet" href="../assets/css/form.css" />
     </head>
     <body>
-
-        <div class="container">
-            <h1><span class="b-b-theme-thick">Add Admin</span></h1>
-            <form id="add-form" method="post" action="add-admin.php">
-                <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
-                <div class="row">
-                    <div class="col-4 col-md-3">Email ID : </div>
-                    <div class="col-8 col-md-9">
-                        <input type="email" id="email" name="email" class="tbl-col" placeholder="Email ID" required />
+        <?= $header ?>
+        <main>
+            <div class="container">
+                <h1 class="mid-line"><span class="text">Add Admin</span></h1>
+                <form id="add-form" method="post" action="add-admin.php">
+                    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="email" id="email" name="email" class="tbl-col" placeholder="Email ID" required />
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 text-right">
-                        <input type="submit" value="Add Admin" />
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <input type="submit" class="link-button" value="Add Admin" />
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </main>
 
         <?= $script ?>
     </body>

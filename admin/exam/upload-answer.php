@@ -39,7 +39,7 @@
                 $getData = fgetcsv($file, 5000, ",");
                 $getData = preg_replace("/\xEF\xBB\xBF/", "", $getData);
                 $query .= " ($getData[0], $getData[1]),";
-                
+
                 while (($getData = fgetcsv($file, 5000, ",")) !== FALSE)
                 {
                     $query .= " ($getData[0], $getData[1]),";
@@ -82,33 +82,12 @@
     <head>
         <title>Modify Corporate Services</title>
         <?= $head ?>
-        <style>
-            main {
-                padding-top: 5rem;
-                padding-bottom: 5rem;
-            }
-            .link-button {
-                letter-spacing: 2px;
-            }
-            .upload-mask {
-                display: inline-block;
-                padding: 1rem 2rem;
-                background-color: rgba(0, 0, 0, 0.5);
-                color: #fff;
-                cursor: pointer;
-                margin: 0.25rem;
-            }
-            .mar-top-2 {
-                margin-top: 2rem;
-            }
-            .uploaded {
-                background-color: rgba(0, 255, 0, 0.5);
-            }
-        </style>
+        <link rel="stylesheet" href="../../assets/css/admin.css" />
     </head>
     <body>
-
+        <?= $header ?>
         <main class="container">
+            <h1 class="mid-line"><span class="text">Upload Answer Key</span></h1>
             <form action="upload-answer" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="sec_count" value="<?= $sec_count ?>" />
                 <input type="hidden" name="e_code" value="<?= $e_code ?>" />
@@ -117,7 +96,7 @@
                         <?php
                             for($i = 1; $i <= $sec_count; $i ++) {
                         ?>
-                        <div id="upload-mask-<?= $i ?>" data-serial="<?= $i ?>" class="upload-mask">Upload Section <?= $i ?> Questions (.csv)</div>
+                        <div id="upload-mask-<?= $i ?>" data-serial="<?= $i ?>" class="upload-mask">Select Section <?= $i ?> Answer Key File (.csv)</div>
                         <input type="file" class="d-none" accept=".csv" id="ques_file_<?= $i ?>" data-serial="<?= $i ?>" name="ques_file_<?= $i ?>" />
                         <input type="hidden" id="flag_<?= $i ?>" name="flag_<?= $i ?>" value="0" />
                         <?php

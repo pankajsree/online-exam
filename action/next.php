@@ -10,7 +10,7 @@
     $response_table = "cse_033_phy_response";
 
     $col = "q" . $serial;
-    $query = "SELECT `$col` FROM `$response_table` WHERE `candidate_id` = '$candidate_id'";
+    $query = "SELECT `$col` AS `original`, ABS(`$col`) AS `$col` FROM `$response_table` WHERE `candidate_id` = '$candidate_id'";
     $result = mysqli_query($conn, $query);
     if(!$result) {
         echo mysqli_error($conn);
@@ -18,6 +18,13 @@
     }
 
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    ?>
+    <script>
+        changeColor(<?= $serial ?>, <?= $row['original'] ?>);
+    </script>
+    <?php
+    
     $response = "opt_" . $row[$col] . "_" . $serial;
 
     if($row[$col] == 0) {

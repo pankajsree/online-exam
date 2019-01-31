@@ -1,0 +1,62 @@
+main {
+    padding-top: 4rem;
+}
+
+h4, h5 {
+    text-decoration: underline;
+}
+
+form {
+    margin: 3rem 0;
+}
+
+.ques-sl-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+
+    border: 1px solid #333;
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+.sl-not-visited {
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+.sl-not-answered {
+    color: #fff;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.sl-answered {
+    color: #fff;
+    background-color: #2E7D32;
+    border-radius: 50%;
+}
+
+.sl-marked-re {
+    color: #fff;
+    background-color: #1A237E;
+    border-radius: 50%;
+}
+
+.sl-ans-marked-re {
+    color: #fff;
+    background-color: orange;
+    border-radius: 50%;
+}
+
+input, label {
+    display: inline;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

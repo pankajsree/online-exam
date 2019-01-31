@@ -54,54 +54,58 @@
         <title>Edit Profile</title>
         <meta name="author" content="Pankajsree Das">
         <?= $head ?>
+        <link rel="stylesheet" href="../../assets/css/admin.css" />
         <link rel="stylesheet" href="../../assets/css/form.css" />
     </head>
     <body>
-        <div class="container">
-            <h1><span class="b-b-theme-thick">Add User</span></h1>
-            <form id="add-form" method="post" action="add-details">
-                <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
-                <input type="hidden" value="" name="updated_col" id="updated-col" />
+        <?= $header ?>
+        <main>
+            <div class="container">
+                <h1 class="mid-line"><span class="text">Add Exam Details</span></h1>
+                <form id="add-form" method="post" action="add-details">
+                    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
+                    <input type="hidden" value="" name="updated_col" id="updated-col" />
 
-                <div class="row">
-                    <div class="col-12">
-                        <input type="text" id="e_code" name="e_code" class="tbl-col" placeholder="Exam Code" required />
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" id="e_code" name="e_code" class="tbl-col" placeholder="Exam Code" required />
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <input type="text" id="e_name" name="e_name" class="tbl-col" placeholder="Exam Name" required />
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" id="e_name" name="e_name" class="tbl-col" placeholder="Exam Name" required />
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <input type="text" id="e_password" name="e_password" class="tbl-col" placeholder="Exam Password" />
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" id="e_password" name="e_password" class="tbl-col" placeholder="Exam Password" />
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <select id="sec_count" name="sec_count" class="tbl-col" >
-                            <option value="1" selected hidden>Number of Sections</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
+                    <div class="row">
+                        <div class="col-12">
+                            <select id="sec_count" name="sec_count" class="tbl-col" >
+                                <option value="1" selected hidden>Number of Sections</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 text-right">
-                        <input type="submit" value="Add User" />
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <input type="submit" class="link-button" value="Add Exam" />
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </main>
 
         <?= $script ?>
     </body>

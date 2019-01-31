@@ -3,22 +3,24 @@
     require("common/common.php");
     require("config/db-config.php");
     require("helpers/ques-set.php");
+    require("helpers/check-login.php");
 
-    $_SESSION['candidate_id'] = "cse_033_001";
-    $_SESSION['candidate_name'] = "Pankajsree Das";
-    $_SESSION['serial'] = 1;
-
+    // $exam_code = $_SESSION['exam_code'];
+    $exam_name = $_SESSION['exam_name'];
     $serial = $_SESSION['serial'];
     $candidate_id = $_SESSION['candidate_id'];
     $candidate_name = $_SESSION['candidate_name'];
+    $sec_id = $_SESSION['sec_id'];
+
+    $sec_name = $_SESSION['sec_name'];
+    $tot_ques = $_SESSION['tot_ques'];
 
     /*************************/
 
-
-    $response_table = "cse_033_phy_response";
+    $response_table = $sec_id . "_response";
 
     $col = "q" . $serial;
-    $query = "SELECT `$col` FROM `$response_table` WHERE `candidate_id` = '$candidate_id'";
+    $query = "SELECT ABS(`$col`) AS `$col` FROM `$response_table` WHERE `candidate_id` = '$candidate_id'";
     $result = mysqli_query($conn, $query);
     if(!$result) {
         echo mysqli_error($conn);
@@ -48,36 +50,7 @@
 
     /*************************/
 
-    // $exam_code = $_GET['exam_code'];
-    // $get_sec = $_GET['sec_id'];
-
-    $exam_code = "cse_033";
-    $get_sec = "phy";
-
-    $sec = $exam_code . "_" . $get_sec;
-
-    $query = "SELECT `exam_name` FROM `exam` WHERE `exam_code` = '$exam_code'";
-    $result = mysqli_query($conn, $query);
-    if(!$result) {
-        die($query);
-    }
-    $row_exam = mysqli_fetch_assoc($result);
-    $exam_name = $row_exam['exam_name'];
-
-    $query = "SELECT `sec_name`, `tot_ques`, `time_mins` FROM `sec_details` WHERE `sec_id` = '$sec'";
-    $result = mysqli_query($conn, $query);
-    if(!$result) {
-        die($query);
-    }
-    $row_details = mysqli_fetch_assoc($result);
-
-    $sec_name = $row_details['sec_name'];
-    $tot_ques = $row_details['tot_ques'];
-    $time_mins = $row_details['time_mins'];
-
-    $_SESSION['DURATION'] = $time_mins;
-
-    $table_response = $sec . "_response";
+    $table_response = $sec_id . "_response";
     $query_response = "SELECT `candidate_id`,";
     for($i = 1; $i <= $tot_ques; $i ++) {
         $query_response .= "`q" . $i . "`,";
@@ -90,7 +63,7 @@
     $db_responses = $row_response;
     $json_response = json_encode($db_responses);
 
-    $table_ques = $sec . "_ques";
+    $table_ques = $sec_id . "_ques";
 
     $query = "SELECT `ques_sl`, `ques`, `opt_1`, `opt_2`, `opt_3`, `opt_4`, `image` FROM `$table_ques`";
     $result = mysqli_query($conn, $query);
@@ -116,6 +89,51 @@
         <link rel='stylesheet' href='<?= __ROOT__ ?>/assets/css/paper.css' />
     </head>
     <body>
+        <div id="modal">
+            <div id="summary">
+                <button type="button" id="close-summary"><i class="fas fa-times"></i></button>
+                <div class="abs-middle">
+                    <h3 class="text-center">Response Summary</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Total Questions</td>
+                                <td><?= $tot_ques ?></td>
+                            </tr>
+                            <tr>
+                                <td>Not Visited</td>
+                                <td id="summary-nv"></td>
+                            </tr>
+                            <tr>
+                                <td>Not Answered</td>
+                                <td id="summary-na"></td>
+                            </tr>
+                            <tr>
+                                <td>Answered</td>
+                                <td id="summary-a"></td>
+                            </tr>
+                            <tr>
+                                <td>Marked for Review</td>
+                                <td id="summary-rn"></td>
+                            </tr>
+                            <tr>
+                                <td>Answered &amp; Marked for Review</td>
+                                <td id="summary-sr"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="caution">
+                        Are you sure to Submit &amp; Finish your exam?
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="button" id="yes-finish" class="link-button">Yes</button>
+                                <button type="button" id="no-finish" class="link-button">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <header>
             <div id="header-top" class="container-fluid">
                 <img class="d-inline-block" src="<?= __ROOT__ ?>/images/logo/header.png" alt="">
@@ -179,24 +197,29 @@
                 <div class="col-5">
                     <div class="response-status">
                         <div class="row">
-                            <div class="col-6">
-                                <div id="not-visited" class="circle">150</div><span class="text">Not Visited</span>
+                            <div class="col-6 d-inline-flex align-items-center">
+                                <div id="not-visited" class="circle"></div>
+                                <div class="text">Not Visited</div>
                             </div>
-                            <div class="col-6">
-                                <div id="not-answered" class="circle">50</div><span class="text">Not Answered</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div id="answered" class="circle">150</div><span class="text">Answered</span>
-                            </div>
-                            <div class="col-6">
-                                <div id="marked-re" class="circle">50</div><span class="text">Marked for Review</span>
+                            <div class="col-6 d-inline-flex align-items-center">
+                                <div id="not-answered" class="circle"></div>
+                                <div class="text">Not Answered</div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div id="ans-marked-re" class="circle">150</div><span class="text">Answered & Marked for Review (will be considered for evaluation)</span>
+                            <div class="col-6 d-inline-flex align-items-center">
+                                <div id="answered" class="circle"></div>
+                                <div class="text">Answered</div>
+                            </div>
+                            <div class="col-6 d-inline-flex align-items-center">
+                                <div id="marked-re" class="circle"></div>
+                                <div class="text">Marked for Review</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-inline-flex align-items-center">
+                                <div id="ans-marked-re" class="circle"></div>
+                                <div class="text">Answered & Marked for Review (will be considered for evaluation)</div>
                             </div>
                         </div>
                     </div>
@@ -216,6 +239,7 @@
         </main>
 
         <?= $script ?>
+        <script src="assets/js/response-color.js"></script>
 
         <script>
             var response = "<?= $response ?>";
@@ -226,7 +250,6 @@
             var btn;
             for(i = 1; i <= tot_ques; i ++) {
                 btn = "#ques-sl-btn-" + i;
-                // alert(db_responses[i]);
                 switch (db_responses[i]) {
                     case '1':
                     case '2':
@@ -252,6 +275,8 @@
                 }
             }
 
+            responseCount();
+
             var id;
             id = "#" + response;
             $(id).prop('checked', true);
@@ -263,6 +288,7 @@
             var data_prev = 0;
             var res_1;
             var json = <?= $json ?>;
+            var tot_answered;
 
             /*****     Countdown-Timer     *****/
 
@@ -300,15 +326,23 @@
                 if(time_left < 310 && time_left > 290) {
                     fiveMinLeft();
                 }
-                $.ajax({
-                    url: 'action/timer.php',
-                    type: 'post',
-                    data: {},
-                    success: function(result) {},
-                    error: function(){
-                        alert("Something went Wrong with Timer !!!");
-                    }
-                });
+                if(time_left > 10) {
+                    $.ajax({
+                        url: 'action/timer.php',
+                        type: 'post',
+                        data: {},
+                        success: function(result) {},
+                        error: function(){
+                            alert("Something went Wrong with Timer !!!");
+                        }
+                    });
+                }
+                else {
+                    clearInterval(ajaxTimer);
+                    // tot_answered = totalAnswered();
+                    // tot_not_answered = (tot_ques - tot_answered);
+                    window.location.href = "submit";
+                }
             }, 30000);
 
             $(".ques-sl-btn").click(function() {
@@ -340,6 +374,8 @@
                         $("#prev").attr("data-serial", data_prev);
                         $("#re-nxt").attr("data-serial", data_next);
                         $("#re-nxt").attr("data-mark", serial);
+                        $("#clear").attr("data-serial", serial);
+                        responseCount();
                     },
                     error: function(){
                         alert("Something went Wrong !!! . . .");
@@ -352,16 +388,13 @@
                 cur_serial = parseInt(serial);
                 data_prev = cur_serial;
                 if(parseInt(serial) == 1) {
-                    // data_prev = tot_ques;
                     data_next = parseInt(serial) + 1;
                 }
                 else if(parseInt(serial) == tot_ques) {
-                    // data_prev = parseInt(serial) - 1;
                     data_next = 1;
                 }
                 else {
                     data_next = parseInt(serial) + 1;
-                    // data_prev = parseInt(serial) - 1;
                 }
                 serial = data_next;
                 if(parseInt(serial) == tot_ques) {
@@ -390,6 +423,8 @@
                         $("#prev").attr("data-serial", data_prev);
                         $("#re-nxt").attr("data-serial", data_next);
                         $("#re-nxt").attr("data-mark", serial);
+                        $("#clear").attr("data-serial", serial);
+                        responseCount();
                     },
                     error: function(){
                         alert("Something went Wrong !!! . . .");
@@ -402,11 +437,9 @@
                 cur_serial = parseInt(serial);
                 data_prev = cur_serial;
                 if(parseInt(serial) == 1) {
-                    // data_prev = tot_ques;
                     data_next = parseInt(serial) + 1;
                 }
                 else if(parseInt(serial) == tot_ques) {
-                    // data_prev = parseInt(serial) - 1;
                     data_next = 1;
                 }
                 else {
@@ -440,6 +473,8 @@
                         $("#prev").attr("data-serial", data_prev);
                         $("#re-nxt").attr("data-serial", data_next);
                         $("#re-nxt").attr("data-mark", serial);
+                        $("#clear").attr("data-serial", serial);
+                        responseCount();
                     },
                     error: function(){
                         alert("Something went Wrong !!! . . .");
@@ -479,6 +514,8 @@
                         $("#prev").attr("data-serial", data_prev);
                         $("#re-nxt").attr("data-serial", data_next);
                         $("#re-nxt").attr("data-mark", serial);
+                        $("#clear").attr("data-serial", serial);
+                        responseCount();
                     },
                     error: function(){
                         alert("Something went Wrong !!! . . .");
@@ -516,6 +553,8 @@
                         $("#prev").attr("data-serial", data_prev);
                         $("#re-nxt").attr("data-serial", data_next);
                         $("#re-nxt").attr("data-mark", serial);
+                        $("#clear").attr("data-serial", serial);
+                        responseCount();
                     },
                     error: function(){
                         alert("Something went Wrong !!! . . .");
@@ -553,6 +592,8 @@
                         $("#prev").attr("data-serial", data_prev);
                         $("#re-nxt").attr("data-serial", data_next);
                         $("#re-nxt").attr("data-mark", serial);
+                        $("#clear").attr("data-serial", serial);
+                        responseCount();
                     },
                     error: function(){
                         alert("Something went Wrong !!! . . .");
@@ -570,17 +611,16 @@
             });
 
             $("#submit").click(function() {
-                $.ajax({
-                    url: 'submit.php',
-                    type: 'post',
-                    data: {},
-                    success: function(result) {
-                        alert("Logged Out");
-                    },
-                    error: function(){
-                        alert("Something went Wrong !!! . . .");
-                    }
-                });
+                summary();
+                $("#modal").show();
+            });
+
+            $("#no-finish, #close-summary").click(function() {
+                $("#modal").hide();
+            });
+
+            $("#yes-finish").click(function() {
+                window.location.href = "submit";
             });
         </script>
     </body>

@@ -17,6 +17,12 @@
         $response = 6;
     }
 
+    ?>
+    <script>
+        changeColor(<?= $serial ?>, <?= $response ?>);
+    </script>
+    <?php
+
     $query_response = "UPDATE `$response_table` SET ";
         $col = "q" . $serial;
         $query_response .= "`$col` = '$response'";
@@ -35,7 +41,7 @@
     }
 
         $col = "q" . $serial;
-    $query = "SELECT ABS(`$col`) AS `$col` FROM `$response_table` WHERE `candidate_id` = '$candidate_id'";
+    $query = "SELECT `$col` AS `original`, ABS(`$col`) AS `$col` FROM `$response_table` WHERE `candidate_id` = '$candidate_id'";
     $result = mysqli_query($conn, $query);
     if(!$result) {
         echo mysqli_error($conn);
@@ -43,6 +49,12 @@
     }
 
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    ?>
+    <script>
+        changeColor(<?= $serial ?>, <?= $row['original'] ?>);
+    </script>
+    <?php
 
         $response = "opt_" . $row[$col] . "_" . $serial;
     // $json = json_encode($response);

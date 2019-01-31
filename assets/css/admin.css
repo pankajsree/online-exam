@@ -1,0 +1,40 @@
+body {
+  padding-bottom: 4rem;
+}
+
+main {
+  padding-top: 4rem;
+}
+
+form {
+  max-width: 750px;
+  margin: 0 auto;
+}
+form a {
+  color: #800000;
+}
+
+.link-button {
+  letter-spacing: 2px;
+}
+
+.upload-mask {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+.upload-mask:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.mar-top-2 {
+  margin-top: 2rem;
+}
+
+.uploaded {
+  background-color: rgba(0, 255, 0, 0.5);
+  color: #000;
+}

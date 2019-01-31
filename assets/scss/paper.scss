@@ -1,38 +1,64 @@
-header {
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.75);
+body {
+    position: relative;
+}
+
+#modal {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    min-height: 100vh;
+}
 
-    #header-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 2rem;
+#summary {
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #eee;
+
+    #close-summary {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+
+        i {
+            font-size: 1.5rem;
+        }
     }
 
-    img {
-        height: 4.2rem;
-        width: auto;
+    .abs-middle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
-    .candi-det {
-        display: inline-block;
+    table {
+        min-width: 40%;
+        margin: 2.5rem auto;
 
-        .label {
-            color: rgba(255, 255, 255, 0.75);
-            font-weight: bold;
+        td {
+            border: 1px solid #111;
+            padding: 0.25rem 0.5rem;
         }
+    }
 
-        #candi-name, #candi-enroll {
-            font-weight: bold;
-            font-size: 1.1rem;
-            line-height: 1;
-        }
+    .caution {
+        text-align: center;
 
-        #time-left {
-            font-size: 2rem;
-            font-weight: bold;
-            line-height: 1;
+        .link-button {
+            padding: 0.5rem 2rem;
+            margin: 1rem 0.5rem;
+            margin-bottom: 0;
         }
     }
 }
@@ -206,6 +232,7 @@ main {
 
         .circle {
             display: inline-flex;
+            flex: 0 0 auto;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
