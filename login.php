@@ -23,7 +23,7 @@
                 $chk_candidate_id = mysqli_real_escape_string($conn, $_POST['candidate_id']);
                 $chk_exam_password = mysqli_real_escape_string($conn, $_POST['exam_password']);
 
-                $query = "SELECT `candidate_id`, `candidate_name` FROM `candidate` WHERE `candidate_id` = '$chk_candidate_id'";
+                $query = "SELECT `candidate_id`, `candidate_name`, `candidate_exam_status` FROM `candidate` WHERE `candidate_id` = '$chk_candidate_id'";
                 $result_candi = mysqli_query($conn, $query);
                 if(!$result_candi) {
                     die($query);
@@ -31,39 +31,46 @@
 
                 if(mysqli_num_rows($result_candi) != 0) {
                     $row = mysqli_fetch_array($result_candi, MYSQLI_ASSOC);
-                    $candidate_name = $row['candidate_name'];
-                    mysqli_free_result($result_candi);
-
-                    $query = "SELECT `exam_code`, `exam_name`, `exam_password` FROM `exam` WHERE `is_active` = 1 ORDER BY `added_on` DESC";
-                    $result = mysqli_query($conn, $query);
-                    if(!$result) {
-                        die($query);
+                    if($row['candidate_exam_status'] == 5) {
+                        ?>
+                            <script>window.location.href = "paper-sumbitted"</script>
+                        <?php
                     }
+                    else {
+                        $candidate_name = $row['candidate_name'];
+                        mysqli_free_result($result_candi);
 
-                    if(mysqli_num_rows($result) != 0) {
-                        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                        $exam_code = $row['exam_code'];
-                        $exam_name = $row['exam_name'];
-                        $exam_password = $row['exam_password'];
-                        if($exam_code == $chk_exam_code && $chk_exam_password == $exam_password) {
-                            $_SESSION['candidate_id'] = $chk_candidate_id;
-                            $_SESSION['candidate_name'] = $candidate_name;
-                            $_SESSION['exam_code'] = $chk_exam_code;
-                            $_SESSION['exam_name'] = $exam_name;
-                            $_SESSION['serial'] = 1;
-                    ?>
-                            <script>window.location.href = "check-details"</script>
-                    <?php
+                        $query = "SELECT `exam_code`, `exam_name`, `exam_password` FROM `exam` WHERE `is_active` = 1 ORDER BY `added_on` DESC";
+                        $result = mysqli_query($conn, $query);
+                        if(!$result) {
+                            die($query);
                         }
+
+                        if(mysqli_num_rows($result) != 0) {
+                            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                            $exam_code = $row['exam_code'];
+                            $exam_name = $row['exam_name'];
+                            $exam_password = $row['exam_password'];
+                            if($exam_code == $chk_exam_code && $chk_exam_password == $exam_password) {
+                                $_SESSION['candidate_id'] = $chk_candidate_id;
+                                $_SESSION['candidate_name'] = $candidate_name;
+                                $_SESSION['exam_code'] = $chk_exam_code;
+                                $_SESSION['exam_name'] = $exam_name;
+                                $_SESSION['serial'] = 1;
+                        ?>
+                                <script>window.location.href = "check-details"</script>
+                        <?php
+                            }
+                            else {
+                                echo "<script>alert(\"Invalid Exam Code or Password !!!\");</script>";
+                                echo "<script>window.location.href = \"login\"</script>";
+                            }
+                        }
+
                         else {
                             echo "<script>alert(\"Invalid Exam Code or Password !!!\");</script>";
                             echo "<script>window.location.href = \"login\"</script>";
                         }
-                    }
-
-                    else {
-                        echo "<script>alert(\"Invalid Exam Code or Password !!!\");</script>";
-                        echo "<script>window.location.href = \"login\"</script>";
                     }
                 }
 
@@ -124,13 +131,16 @@
                 <form id="form-login" action="" method="post">
                     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
                     <div class="row">
-                        <div class="col-12"><input type="text" id="candidate_id" name="candidate_id" value="" placeholder="Enter your registration number" required /></div>
+                        <div class="col-4 label-b">Registration number&nbsp;: </div>
+                        <div class="col-8"><input type="text" id="candidate_id" name="candidate_id" value="" placeholder="Enter your registration number" required /></div>
                     </div>
                     <div class="row">
-                        <div class="col-12"><input type="text" id="exam_code" name="exam_code" value="" placeholder="Enter Exam Code" required /></div>
+                        <div class="col-4 label-b">Exam Code&nbsp;: </div>
+                        <div class="col-8"><input type="text" id="exam_code" name="exam_code" value="" placeholder="Enter Exam Code" required /></div>
                     </div>
                     <div class="row">
-                        <div class="col-12"><input type="password" id="exam_password" name="exam_password" value="" placeholder="Enter exam password here" required /></div>
+                        <div class="col-4 label-b">Exam password&nbsp;: </div>
+                        <div class="col-8"><input type="password" id="exam_password" name="exam_password" value="" placeholder="Enter exam password here" required /></div>
                     </div>
                     <div class="row">
                         <div class="col-4 text-center" >

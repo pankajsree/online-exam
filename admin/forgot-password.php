@@ -75,28 +75,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Edit Profile</title>
+        <title>Add Admin</title>
         <meta name="author" content="Pankajsree Das">
         <?= $head ?>
+        <link rel="stylesheet" href="../assets/css/admin.css" />
         <link rel="stylesheet" href="../assets/css/form.css" />
     </head>
     <body>
-
-        <div class="container">
-            <h1 class="text-center mar-btm-1"><span class="b-b-theme-thick-center">Forgot Password</span></h1>
-            <div id="forgot-pw-content">
-                <p class="l-s-1-5">To reset your password, enter the email address you use to login to NIT Agartala. A link will be sent to the email address which will let you reset your password.</p>
-                <form method="post" action="forgot-password.php">
-                    <input type="email" id="email" name="email" class="tbl-col" placeholder="Enter your Email Address" required />
-                    <div class="row">
-                        <div class="col-12 text-right">
-                            <input type="submit" value="Submit" />
+        <?= $header ?>
+        <main>
+            <div class="container">
+                <h1 class="mid-line"><span class="text">Forgot Password</span></h1>
+                <div id="forgot-pw-content">
+                    <p class="l-s-1-5">To reset your password, enter the email address you use to login to NIT Agartala. A link will be sent to the email address which will let you reset your password.</p>
+                    <form method="post" action="">
+                        <input type="email" id="email" name="email" class="tbl-col" placeholder="Enter your Email Address" required />
+                        <div class="row">
+                            <div class="col-12 text-right">
+                                <input type="submit" class="link-button" value="Submit" />
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-
+        </main>
         <?= $script ?>
     </body>
 </html>

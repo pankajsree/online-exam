@@ -13,6 +13,21 @@ body {
   z-index: 999;
   min-height: 100vh;
 }
+#modal h3 {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem;
+  padding-top: 0;
+}
+#modal h3:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  left: 0;
+  bottom: 0;
+}
 
 #summary {
   position: absolute;
@@ -38,6 +53,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 #summary table {
   min-width: 40%;
@@ -51,6 +67,130 @@ body {
   text-align: center;
 }
 #summary .caution .link-button {
+  padding: 0.5rem 2rem;
+  margin: 1rem 0.5rem;
+  margin-bottom: 0;
+}
+
+#modal-2 {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  min-height: 100vh;
+}
+#modal-2 h3 {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem;
+  padding-top: 0;
+}
+#modal-2 h3:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  left: 0;
+  bottom: 0;
+}
+
+#summary-2 {
+  position: absolute;
+  width: 30rem;
+  height: 15rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eee;
+}
+#summary-2 #close-summary-2 {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+#summary-2 #close-summary-2 i {
+  font-size: 1.5rem;
+}
+#summary-2 .abs-middle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#summary-2 .caution {
+  text-align: center;
+}
+#summary-2 .caution .link-button {
+  padding: 0.5rem 2rem;
+  margin: 1rem 0.5rem;
+  margin-bottom: 0;
+}
+
+#modal-5 {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  min-height: 100vh;
+}
+#modal-5 h3 {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem;
+  padding-top: 0;
+}
+#modal-5 h3:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  left: 0;
+  bottom: 0;
+}
+
+#summary-5 {
+  position: absolute;
+  width: 30rem;
+  height: 15rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eee;
+}
+#summary-5 #close-summary-5 {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+#summary-5 #close-summary-5 i {
+  font-size: 1.5rem;
+}
+#summary-5 .abs-middle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#summary-5 .caution {
+  text-align: center;
+}
+#summary-5 .caution .link-button {
   padding: 0.5rem 2rem;
   margin: 1rem 0.5rem;
   margin-bottom: 0;
@@ -150,6 +290,7 @@ main .response-container #sv-re {
   background-color: orange;
 }
 main .response-container #re-nxt {
+  display: none !important;
   background-color: #1A237E;
 }
 main .response-container #clear {

@@ -1,7 +1,7 @@
 <?php
     session_start();
+    require_once("../check-session.php");
     require_once("../../common/common.php");
-    require_once("../session-timeout.php");
     require_once("../../config/db-config.php");
     require_once("../../helpers/token.php");
 
@@ -39,7 +39,7 @@
             <script>
                 alert("Exam Details Added Successfully");
                 function redirect() {
-                    window.location = "../home";
+                    window.location = "../dashboard";
                 }
                 setTimeout(redirect(), 5000);
             </script>
@@ -67,26 +67,30 @@
                     <input type="hidden" value="" name="updated_col" id="updated-col" />
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-4 label-b">Exam Code&nbsp;: </div>
+                        <div class="col-8">
                             <input type="text" id="e_code" name="e_code" class="tbl-col" placeholder="Exam Code" required />
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-4 label-b">Exam Name&nbsp;: </div>
+                        <div class="col-8">
                             <input type="text" id="e_name" name="e_name" class="tbl-col" placeholder="Exam Name" required />
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-4 label-b">Exam Password&nbsp;: </div>
+                        <div class="col-8">
                             <input type="text" id="e_password" name="e_password" class="tbl-col" placeholder="Exam Password" />
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-4 label-b">Number of Sections&nbsp;: </div>
+                        <div class="col-8">
                             <select id="sec_count" name="sec_count" class="tbl-col" >
                                 <option value="1" selected hidden>Number of Sections</option>
                                 <option value="1">1</option>
-                                <option value="2">2</option>
+                                <!-- <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
@@ -94,7 +98,7 @@
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                                 <option value="9">9</option>
-                                <option value="10">10</option>
+                                <option value="10">10</option> -->
                             </select>
                         </div>
                     </div>

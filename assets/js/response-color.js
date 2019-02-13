@@ -51,9 +51,12 @@ function summary() {
     var count_rn = $('.sl-marked-re').length;
     var count_sr = $('.sl-ans-marked-re').length;
 
-    $("#summary-nv").text(count_nv);
-    $("#summary-na").text(count_na);
-    $("#summary-a").text(count_a);
-    $("#summary-rn").text(count_rn);
-    $("#summary-sr").text(count_sr);
+    count_na_f = count_na + count_rn + count_nv;
+    count_a_f = count_a + count_sr;
+
+    // $("#summary-nv").text(count_nv);
+    $("#summary-na").text(count_na_f);
+    $("#summary-a").text(count_a_f);
+    // $("#summary-rn").text(count_rn);
+    // $("#summary-sr").text(count_sr);
 }

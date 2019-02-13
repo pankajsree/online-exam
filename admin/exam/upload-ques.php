@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    require_once("../check-session.php");
     require_once("../../common/common.php");
     require_once("../../config/db-config.php");
 
@@ -53,7 +55,7 @@
     <script>
     alert("CSV File has been successfully Imported");
         function redirect() {
-            window.location = "../home";
+            window.location = "../dashboard";
         }
         setTimeout(redirect(), 5000);
 

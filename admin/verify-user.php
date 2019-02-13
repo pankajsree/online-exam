@@ -41,22 +41,23 @@
                 <!DOCTYPE html>
                 <html>
                     <head>
-                        <title>Edit Profile</title>
+                        <title>Add Admin</title>
                         <meta name="author" content="Pankajsree Das">
                         <?= $head ?>
+                        <link rel="stylesheet" href="../assets/css/admin.css" />
                         <link rel="stylesheet" href="../assets/css/form.css" />
                     </head>
                     <body>
-
+                        <?= $header ?>
                         <main>
                             <div class="container text-center">
-                                <h1><span class="b-b-theme-thick-center">Email Verification</span></h1>
+                                <h1 class="mid-line"><span class="text">Email Verification</span></h1>
                                 <strong class="font-1-25"><?= $message ?></strong>
                                 </br />
                                 <a class="default-links" href="<?= __EMAIL_ROOT__ ?>/admin/login">Click Here</a>, to Login to your account.
                             </div>
                         </main>
-                        
+
                         <?= $script ?>
                     </body>
                 </html>

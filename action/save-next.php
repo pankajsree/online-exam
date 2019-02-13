@@ -4,11 +4,11 @@
     require("../config/db-config.php");
     require("../helpers/ques-set.php");
 
-    $candidate_id = 'cse_033_001';
+    $candidate_id = $_SESSION['candidate_id'];
     $serial = $_POST['serial'];
     $questions = $_POST['json'];
     $tot_ques = $_POST['tot_ques'];
-    $response_table = "cse_033_phy_response";
+    $response_table = $_SESSION['sec_id'] . "_response";
 
     if($_POST['res_1'] == 0) {
         $response = 5;

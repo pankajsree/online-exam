@@ -4,8 +4,8 @@
     require_once("../config/db-config.php");
     require_once("../helpers/token.php");
 
-    if(isset($_SESSION['uid'])) {
-        header("Location: home");
+    if(isset($_SESSION['admin_id'])) {
+        header("Location: dashboard");
     }
 
     if(isset($_POST['submit'])) {
@@ -34,10 +34,10 @@
                     $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
                     if(password_verify($password, $row['password'])) {
 
-                        $_SESSION['uid'] = $row['admin_id'];
+                        $_SESSION['admin_id'] = $row['admin_id'];
                         $_SESSION['email'] = $row['email'];
                 ?>
-                        <script>window.location.href = "home"</script>
+                        <script>window.location.href = "dashboard"</script>
                 <?php
                     }
                     else {
@@ -80,17 +80,19 @@
                 <form id="form-login" action="login.php" method="post">
                     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
                     <div class="row">
-                        <div class="col-12"><input type="email" id="email" name="email" value="" placeholder="Enter Your Registered Email ID" required /></div>
+                        <div class="col-4 label-b">Email Address&nbsp;: </div>
+                        <div class="col-8"><input type="email" id="email" name="email" value="" placeholder="Enter Your Registered Email ID" required /></div>
                     </div>
                     <div class="row">
-                        <div class="col-12"><input type="password" id="password" name="password" value="" placeholder="Enter Valid Password" required /></div>
+                        <div class="col-4 label-b">Your Password&nbsp;: </div>
+                        <div class="col-8"><input type="password" id="password" name="password" value="" placeholder="Enter Valid Password" required /></div>
                     </div>
                     <div class="row">
-                        <div class="col-3 text-center" >
+                        <div class="col-4 text-center" >
                             <img id="img" class="d-inline" height="35" width="90" src="../helpers/captcha.php" />
                             <a id="captcha-refresh" href="javascript:void(0);"><i class="fas fa-sync-alt"></i></a>
                         </div>
-                        <div class="col-9">
+                        <div class="col-8">
                             <input type="text" class="tbl-col" placeholder="Enter Captcha Here" id="captcha" name="captcha" required />
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 <?php
-    require_once("C:/wamp64/www/nita/common/common.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/online-exam/common/common.php");
 ?>
 
 <!DOCTYPE html>

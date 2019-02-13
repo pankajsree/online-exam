@@ -29,16 +29,17 @@
                 <!DOCTYPE html>
                 <html>
                     <head>
-                        <title>Edit Profile</title>
+                        <title>Add Admin</title>
                         <meta name="author" content="Pankajsree Das">
                         <?= $head ?>
+                        <link rel="stylesheet" href="../assets/css/admin.css" />
                         <link rel="stylesheet" href="../assets/css/form.css" />
                     </head>
                     <body>
-
+                        <?= $header ?>
                         <main>
                             <div class="container text-center">
-                                <h1><span class="b-b-theme-thick-center">Reset Password</span></h1>
+                                <h1 class="mid-line"><span class="text">Reset Password</span></h1>
                                 <form id="update-password-form" method="post" action="../action/update-password.php">
                                     <input type="hidden" id="user-id" name="user-id" value="<?= $admin_id ?>" />
                                     <div class="row">
@@ -55,7 +56,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12 text-right">
-                                            <input type="submit" id="password-submit" value="Update Password" />
+                                            <input type="submit" id="password-submit" class="link-button" value="Update Password" />
                                         </div>
                                     </div>
                                 </form>

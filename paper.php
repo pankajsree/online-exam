@@ -93,17 +93,17 @@
             <div id="summary">
                 <button type="button" id="close-summary"><i class="fas fa-times"></i></button>
                 <div class="abs-middle">
-                    <h3 class="text-center">Response Summary</h3>
+                    <h3>Response Summary</h3>
                     <table>
                         <tbody>
                             <tr>
                                 <td>Total Questions</td>
                                 <td><?= $tot_ques ?></td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>Not Visited</td>
                                 <td id="summary-nv"></td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td>Not Answered</td>
                                 <td id="summary-na"></td>
@@ -112,14 +112,14 @@
                                 <td>Answered</td>
                                 <td id="summary-a"></td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>Marked for Review</td>
                                 <td id="summary-rn"></td>
                             </tr>
                             <tr>
                                 <td>Answered &amp; Marked for Review</td>
                                 <td id="summary-sr"></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     <div class="caution">
@@ -128,6 +128,36 @@
                             <div class="col-12 text-center">
                                 <button type="button" id="yes-finish" class="link-button">Yes</button>
                                 <button type="button" id="no-finish" class="link-button">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-2">
+            <div id="summary-2">
+                <button type="button" id="close-summary-2"><i class="fas fa-times"></i></button>
+                <div class="abs-middle">
+                    <div class="caution">
+                        You have less than 2 minutes left
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="button" id="ok-seen-2" class="link-button">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-5">
+            <div id="summary-5">
+                <button type="button" id="close-summary-5"><i class="fas fa-times"></i></button>
+                <div class="abs-middle">
+                    <div class="caution">
+                        You have less than 5 minutes left
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="button" id="ok-seen-5" class="link-button">OK</button>
                             </div>
                         </div>
                     </div>
@@ -298,10 +328,6 @@
             var mins;
             var secs;
 
-            function fiveMinLeft() {
-                alert("Less than 5 Minutes Left !!! Hurry up");
-            }
-
             var countDown = setInterval(function() {
                 time_left --;
                 if(time_left > 0) {
@@ -322,9 +348,12 @@
                 }
             }, 1000);
 
-            var ajaxTimer = setInterval(function() {
+            function adjustTimer() {
                 if(time_left < 310 && time_left > 290) {
-                    fiveMinLeft();
+                    $("#modal-5").show();
+                }
+                if(time_left < 130 && time_left > 110) {
+                    $("#modal-2").show();
                 }
                 if(time_left > 10) {
                     $.ajax({
@@ -343,7 +372,9 @@
                     // tot_not_answered = (tot_ques - tot_answered);
                     window.location.href = "submit";
                 }
-            }, 30000);
+            }
+            adjustTimer();
+            var ajaxTimer = setInterval(adjustTimer, 30000);
 
             $(".ques-sl-btn").click(function() {
                 serial = $(this).attr("data-serial");
@@ -621,6 +652,14 @@
 
             $("#yes-finish").click(function() {
                 window.location.href = "submit";
+            });
+
+            $("#ok-seen-2, #close-summary-2").click(function() {
+                $("#modal-2").hide();
+            });
+
+            $("#ok-seen-5, #close-summary-5").click(function() {
+                $("#modal-5").hide();
             });
         </script>
     </body>

@@ -4,11 +4,11 @@
     require("../config/db-config.php");
     require("../helpers/ques-set.php");
 
-    $candidate_id = 'cse_033_001';
+    $candidate_id = $_SESSION['candidate_id'];
     $serial = $_POST['serial'];
     $mark_serial = $_POST['mark_serial'];
     $questions = $_POST['json'];
-    $response_table = "cse_033_phy_response";
+    $response_table = $_SESSION['sec_id'] . "_response";
 
     $mark = "q" . $mark_serial;
     $query = "UPDATE `$response_table` SET `$mark` = 6 WHERE `candidate_id` = '$candidate_id'";

@@ -10,12 +10,7 @@
     if(isset($_POST['agreement'])) {
         $agreement = $_POST['agreement'];
         if($agreement == "1") {
-            $query = "UPDATE `candidate` SET `details_agreement` = 1 WHERE `candidate_id` = '$candidate_id'";
-            $result = mysqli_query($conn, $query);
-            if(!$result) {
-                die($query);
-            }
-            echo "<script>alert(\"We will contact you . . . Proceed to exam!\");</script>";
+            echo "<script>window.location.href = \"contact-admin\"</script>";
         }
         echo "<script>window.location.href = \"instructions\"</script>";
     }
@@ -115,13 +110,6 @@
         </main>
 
         <?= $script ?>
-        <script>
-            $(document).ready(function() {
-                $("#captcha-refresh").click(function() {
-                    $("#img").attr("src", "helpers/captcha.php?" + Math.random());
-                });
-            });
-        </script>
 
     </body>
 </html>

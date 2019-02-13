@@ -1,50 +1,50 @@
-﻿1,1
-2,2
-3,3
-4,4
-5,1
-6,2
-7,3
-8,4
-9,4
-10,2
-11,3
-12,1
-13,2
-14,4
-15,1
-16,3
-17,1
-18,2
-19,3
-20,4
-21,1
-22,1
-23,2
-24,3
-25,4
-26,1
-27,2
-28,3
-29,4
-30,4
-31,2
-32,1
-33,1
-34,3
-35,3
-36,3
-37,4
-38,1
-39,2
-40,2
-41,1
-42,3
-43,1
-44,2
-45,3
-46,4
-47,1
-48,2
-49,3
-50,4
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	India	West Indies	Pakistan	Australia	41.png
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	some	many	test	dntud	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	test	some	dntud	many	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	dntud	some	many	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	test	many	some	dntud	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	many	some	test	dntud	41.png
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	some	many	dntud	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	test	dntud	many	some	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	test	dntud	some	many	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	dntud	some	many	test	41.png
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	dntud	some	many	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	some	many	dntud	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	many	some	test	dntud	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	many	test	dntud	some	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	some	dntud	many	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	dntud	many	some	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	test	dntud	some	many	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	dntud	some	many	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	test	many	dntud	some	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	some	many	dntud	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	many	test	some	dntud	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	many	some	dntud	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	dntud	many	test	some	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	some	test	many	dntud	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	test	dntud	some	many	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	test	some	many	dntud	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	test	many	dntud	some	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	many	some	dntud	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	some	many	dntud	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	many	test	some	dntud	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	many	some	test	dntud	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	test	many	dntud	some	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	some	dntud	many	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	dntud	some	test	many	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	dntud	some	many	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	dntud	many	some	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	many	dntud	some	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	many	some	dntud	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	test	dntud	many	some	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	test	some	many	dntud	41.png
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	some	many	test	dntud	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	many	some	dntud	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	dntud	test	some	many	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	test	dntud	many	some	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	some	many	dntud	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	many	dntud	some	test	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	some	many	dntud	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	test	many	some	dntud	
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum."	some	dntud	many	test	
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT	dntud	test	some	many	

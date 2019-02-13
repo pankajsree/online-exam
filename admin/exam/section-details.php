@@ -1,7 +1,7 @@
 <?php
     session_start();
+    require_once("../check-session.php");
     require_once("../../common/common.php");
-    require_once("../session-timeout.php");
     require_once("../../config/db-config.php");
     require_once("../../helpers/token.php");
 
@@ -39,6 +39,7 @@
             $table_ques = $sec_id . "_ques";
             $table_ans = $sec_id . "_ans";
             $table_response = $sec_id . "_response";
+            $table_result = $sec_id . "_result";
 
             $query_ques .= "
                 DROP TABLE IF EXISTS `$table_ques`;
@@ -60,6 +61,18 @@
                     `ques_sl` smallint(3) NOT NULL,
                     `answer` smallint(2) NOT NULL,
                     PRIMARY KEY (`ques_sl`)
+                );
+            ";
+            $query_result = "
+                DROP TABLE IF EXISTS `$table_result`;
+                CREATE TABLE `$table_result` (
+                    `candidate_id` varchar(32) NOT NULL,
+                    `candidate_name` varchar(128) NOT NULL,
+                    `attempted` SMALLINT(3) NOT NULL DEFAULT 0,
+                    `correct` SMALLINT(3) NOT NULL DEFAULT 0,
+                    `incorrect` SMALLINT(3) NOT NULL DEFAULT 0,
+                    `score` SMALLINT(3) NOT NULL DEFAULT 0,
+                    PRIMARY KEY(`candidate_id`)
                 );
             ";
 
@@ -88,7 +101,7 @@
 		}
         // mysqli_free_result($result);
 
-        $query_multi = $query_ques . $query_ans . $query_response;
+        $query_multi = $query_ques . $query_ans . $query_response . $query_result;
 
         $result_ques= mysqli_multi_query($conn, $query_multi);
 		if(!$result_ques) {
@@ -101,7 +114,7 @@
         <script>
             alert("Exam Details Added Successfully");
             function redirect() {
-                window.location = "../home";
+                window.location = "../dashboard";
             }
             setTimeout(redirect(), 5000);
         </script>
@@ -146,25 +159,32 @@
                             <span class="pad-h-1 b-b-black">Section <?= $i ?></span>
                         </h2>
                         <div class="row">
-                            <div class="col-12"><input type="text" id="sec_id_<?= $i ?>" name="sec_id_<?= $i ?>" placeholder="Section ID" required /></div>
+                            <div class="col-4 label-b">Section ID&nbsp;: </div>
+                            <div class="col-8"><input type="text" id="sec_id_<?= $i ?>" name="sec_id_<?= $i ?>" placeholder="Section ID" required /></div>
                         </div>
                         <div class="row">
-                            <div class="col-12"><input type="text" id="sec_name_<?= $i ?>" name="sec_name_<?= $i ?>" placeholder="Section Name" required /></div>
+                            <div class="col-4 label-b">Section Name&nbsp;: </div>
+                            <div class="col-8"><input type="text" id="sec_name_<?= $i ?>" name="sec_name_<?= $i ?>" placeholder="Section Name" required /></div>
                         </div>
                         <div class="row">
-                            <div class="col-12"><input type="text" id="tot_ques_<?= $i ?>" name="tot_ques_<?= $i ?>" placeholder="Total Questions" required /></div>
+                            <div class="col-4 label-b">Total Questions&nbsp;: </div>
+                            <div class="col-8"><input type="text" id="tot_ques_<?= $i ?>" name="tot_ques_<?= $i ?>" placeholder="Total Questions" required /></div>
                         </div>
                         <div class="row">
-                            <div class="col-12"><input type="text" id="time_mins_<?= $i ?>" name="time_mins_<?= $i ?>" placeholder="Total Time(in mins)" required /></div>
+                            <div class="col-4 label-b">Total Time(in mins)&nbsp;: </div>
+                            <div class="col-8"><input type="text" id="time_mins_<?= $i ?>" name="time_mins_<?= $i ?>" placeholder="Total Time(in mins)" required /></div>
                         </div>
                         <div class="row">
-                            <div class="col-12"><input type="text" id="positive_<?= $i ?>" name="positive_<?= $i ?>" placeholder="Positive" required /></div>
+                            <div class="col-4 label-b">Positive Weightage&nbsp;: </div>
+                            <div class="col-8"><input type="text" id="positive_<?= $i ?>" name="positive_<?= $i ?>" placeholder="Positive" required /></div>
                         </div>
                         <div class="row">
-                            <div class="col-12"><input type="text" id="negative_<?= $i ?>" name="negative_<?= $i ?>" placeholder="Negative" required /></div>
+                            <div class="col-4 label-b">Negative Weightage&nbsp;: </div>
+                            <div class="col-8"><input type="text" id="negative_<?= $i ?>" name="negative_<?= $i ?>" placeholder="Negative" required /></div>
                         </div>
                         <div class="row">
-                            <div class="col-12"><textarea name="note_<?= $i ?>" id="note_<?= $i ?>" rows="3" placeholder="Notes about the section(if any)"></textarea></div>
+                            <div class="col-4 label-b">Notes (if any)&nbsp;: </div>
+                            <div class="col-8"><textarea name="note_<?= $i ?>" id="note_<?= $i ?>" rows="3" placeholder="Notes about the section(if any)"></textarea></div>
                         </div>
                     </div>
 

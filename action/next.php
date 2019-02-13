@@ -4,10 +4,10 @@
     require("../config/db-config.php");
     require("../helpers/ques-set.php");
 
-    $candidate_id = 'cse_033_001';
+    $candidate_id = $_SESSION['candidate_id'];
     $serial = $_POST['serial'];
     $questions = $_POST['json'];
-    $response_table = "cse_033_phy_response";
+    $response_table = $_SESSION['sec_id'] . "_response";
 
     $col = "q" . $serial;
     $query = "SELECT `$col` AS `original`, ABS(`$col`) AS `$col` FROM `$response_table` WHERE `candidate_id` = '$candidate_id'";
@@ -24,7 +24,7 @@
         changeColor(<?= $serial ?>, <?= $row['original'] ?>);
     </script>
     <?php
-    
+
     $response = "opt_" . $row[$col] . "_" . $serial;
 
     if($row[$col] == 0) {

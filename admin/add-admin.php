@@ -1,7 +1,7 @@
 <?php
     session_start();
+    require_once("check-session.php");
     require_once("../common/common.php");
-    require_once("session-timeout.php");
     require_once("../config/db-config.php");
     require_once("../helpers/token.php");
 
