@@ -83,7 +83,7 @@
 
             </div>
         </main>
-
+        <?= $footer ?>
         <?= $script ?>
         <script>
             $(document).ready(function() {

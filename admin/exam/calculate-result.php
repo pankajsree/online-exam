@@ -85,5 +85,6 @@
         <div class="message">
             Successfully Calculated Result <i class="far fa-smile"></i>
         </div>
+        <?= $footer ?>
     </body>
 </html>

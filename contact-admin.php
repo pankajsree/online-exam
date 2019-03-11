@@ -24,5 +24,6 @@
         <div class="message">
             Contact the exam Invigilator !!!
         </div>
+        <?= $footer ?>
     </body>
 </html>

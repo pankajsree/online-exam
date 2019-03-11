@@ -145,7 +145,7 @@
                 </form>
             </div>
         </main>
-
+        <?= $footer ?>
 
     </body>
 </html>

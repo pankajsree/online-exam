@@ -18,5 +18,6 @@
         <div class="message">
             You have already Submitted your paper
         </div>
+        <?= $footer ?>
     </body>
 </html>

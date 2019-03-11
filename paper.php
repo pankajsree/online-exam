@@ -268,6 +268,8 @@
 
         </main>
 
+        <?= $footer ?>
+
         <?= $script ?>
         <script src="assets/js/response-color.js"></script>
 

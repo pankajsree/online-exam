@@ -52,14 +52,14 @@
 
     <body>
 
-        <?= $nav ?>
+        <?= $header ?>
         <main>
             <div class="container text-center">
                 <h1>Error 500 - Internal Server Error</h1>
                 <div class="row">
                   <div class="col-12">
-                    <p>The server encountered an internal error. Please contact the server administrator at <a href="javascript:location='mailto:\u006b\u0061\u006d\u0061\u006c\u006d\u0063\u0061\u0030\u0033\u0040\u0067\u006d\u0061\u0069\u006c\u002e\u0063\u006f\u006d';void 0"><script type="text/javascript">document.write('\u006b\u0061\u006d\u0061\u006c\u006d\u0063\u0061\u0030\u0033\u0040\u0067\u006d\u0061\u0069\u006c\u002e\u0063\u006f\u006d')</script></a></p>
-                    <p><a href="<?= __ROOT__ ?>/index">Click Here</a>, to go to the Homepage of <span class="bold-sp-2">NIT Agartala</span></p>
+                    <p>The server encountered an internal error. Please contact the Webmaster</p>
+                    <p>Else <a href="<?= __ROOT__ ?>">Click Here</a>, to go to Login page</p>
                   </div>
                 </div>
             </div>

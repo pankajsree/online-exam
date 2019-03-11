@@ -55,5 +55,6 @@
         <div class="message">
             Successfully Arranged Responses <i class="far fa-smile"></i>
         </div>
+        <?= $footer ?>
     </body>
 </html>

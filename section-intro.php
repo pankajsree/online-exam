@@ -90,6 +90,6 @@
                 </div>
             </div>
         </main>
-
+        <?= $footer ?>
     </body>
 </html>

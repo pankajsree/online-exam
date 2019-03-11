@@ -52,14 +52,14 @@
 
     <body>
 
-        <?= $nav ?>
+        <?= $header ?>
         <main>
             <div class="container text-center">
                 <h1>Error 403 - Forbidden</h1>
                 <div class="row">
                   <div class="col-12">
                     <p>You don't have permission to access this directory on this server.</p>
-                    <p><a href="<?= __ROOT__ ?>/index">Click Here</a>, to go to the Homepage of <span class="bold-sp-2">NIT Agartala</span></p>
+                    <p><a href="<?= __ROOT__ ?>">Click Here</a>, to go to the Login page</p>
                   </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 31, 2019 at 06:01 AM
+-- Generation Time: Mar 11, 2019 at 01:50 PM
 -- Server version: 5.7.13-log
 -- PHP Version: 5.6.31
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `email`, `password`, `activation_code`, `email_status`, `added_on`) VALUES
-(1, 'daspankajsree@gmail.com', '$2y$10$fpS33Dwqef5J4Wv1sDgSZuXURpwusO1eHD3VgwvAGq5zYKKrmz0GC', 'f4569f822520943e5bace6351a434394', 'verified', '2019-01-19 19:09:49');
+(1, 'daspankajsree@gmail.com', '$2y$10$fpS33Dwqef5J4Wv1sDgSZuXURpwusO1eHD3VgwvAGq5zYKKrmz0GC', 'fb2e738325e4a5102dd9fd9e9156dbf6', 'verified', '2019-01-19 19:09:49');
 
 -- --------------------------------------------------------
 
@@ -70,26 +70,50 @@ CREATE TABLE IF NOT EXISTS `candidate` (
 --
 
 INSERT INTO `candidate` (`candidate_id`, `candidate_name`, `candidate_care_of`, `candidate_email`, `candidate_contact_no`, `candidate_exam_status`, `details_agreement`, `time_left`) VALUES
-('cse_033_001', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 1, 1, 30);
+('cse_033_001', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 5, 0, 3600),
+('cse_033_002', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 5, 0, 3600),
+('cse_033_003', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 5, 0, 0),
+('cse_033_004', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 5, 0, 0),
+('cse_033_005', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 0, 0, 3600),
+('cse_033_006', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_007', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 5, 0, 3180),
+('cse_033_008', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 5, 0, 3450),
+('cse_033_009', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 0, 0, 3600),
+('cse_033_010', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_011', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 5, 0, 0),
+('cse_033_012', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_013', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 0, 0, 3600),
+('cse_033_014', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_015', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 0, 0, 3600),
+('cse_033_016', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_017', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 0, 0, 3600),
+('cse_033_018', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_019', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 0, 0, 3600),
+('cse_033_020', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_021', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 0, 0, 3600),
+('cse_033_022', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_023', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 0, 0, 3600),
+('cse_033_024', 'Pankaj Das', 'Pra Das', 'daspsd@gmail.com', '9774590725', 0, 0, 3600),
+('cse_033_025', 'Pankajsree Das', 'Pradyut Das', 'daspankajsree@gmail.com', '9089589666', 5, 0, 3540);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cse_033_phy_ans`
+-- Table structure for table `cse_033_math_ans`
 --
 
-DROP TABLE IF EXISTS `cse_033_phy_ans`;
-CREATE TABLE IF NOT EXISTS `cse_033_phy_ans` (
+DROP TABLE IF EXISTS `cse_033_math_ans`;
+CREATE TABLE IF NOT EXISTS `cse_033_math_ans` (
   `ques_sl` smallint(3) NOT NULL,
   `answer` smallint(2) NOT NULL,
   PRIMARY KEY (`ques_sl`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cse_033_phy_ans`
+-- Dumping data for table `cse_033_math_ans`
 --
 
-INSERT INTO `cse_033_phy_ans` (`ques_sl`, `answer`) VALUES
+INSERT INTO `cse_033_math_ans` (`ques_sl`, `answer`) VALUES
 (1, 1),
 (2, 2),
 (3, 3),
@@ -144,11 +168,11 @@ INSERT INTO `cse_033_phy_ans` (`ques_sl`, `answer`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cse_033_phy_ques`
+-- Table structure for table `cse_033_math_ques`
 --
 
-DROP TABLE IF EXISTS `cse_033_phy_ques`;
-CREATE TABLE IF NOT EXISTS `cse_033_phy_ques` (
+DROP TABLE IF EXISTS `cse_033_math_ques`;
+CREATE TABLE IF NOT EXISTS `cse_033_math_ques` (
   `ques_sl` smallint(3) NOT NULL AUTO_INCREMENT,
   `ques` varchar(1024) NOT NULL,
   `opt_1` varchar(512) NOT NULL,
@@ -160,10 +184,10 @@ CREATE TABLE IF NOT EXISTS `cse_033_phy_ques` (
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cse_033_phy_ques`
+-- Dumping data for table `cse_033_math_ques`
 --
 
-INSERT INTO `cse_033_phy_ques` (`ques_sl`, `ques`, `opt_1`, `opt_2`, `opt_3`, `opt_4`, `image`) VALUES
+INSERT INTO `cse_033_math_ques` (`ques_sl`, `ques`, `opt_1`, `opt_2`, `opt_3`, `opt_4`, `image`) VALUES
 (1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum.', 'India', 'West Indies', 'Pakistan', 'Australia', '41.png'),
 (2, 'SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT', 'some', 'many', 'test', 'dntud', ''),
 (3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sit ipsam nesciunt, a aspernatur rerum.', 'test', 'some', 'dntud', 'many', ''),
@@ -218,11 +242,11 @@ INSERT INTO `cse_033_phy_ques` (`ques_sl`, `ques`, `opt_1`, `opt_2`, `opt_3`, `o
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cse_033_phy_response`
+-- Table structure for table `cse_033_math_response`
 --
 
-DROP TABLE IF EXISTS `cse_033_phy_response`;
-CREATE TABLE IF NOT EXISTS `cse_033_phy_response` (
+DROP TABLE IF EXISTS `cse_033_math_response`;
+CREATE TABLE IF NOT EXISTS `cse_033_math_response` (
   `candidate_id` varchar(32) NOT NULL,
   `q1` smallint(2) NOT NULL DEFAULT '0',
   `q2` smallint(2) NOT NULL DEFAULT '0',
@@ -254,15 +278,107 @@ CREATE TABLE IF NOT EXISTS `cse_033_phy_response` (
   `q28` smallint(2) NOT NULL DEFAULT '0',
   `q29` smallint(2) NOT NULL DEFAULT '0',
   `q30` smallint(2) NOT NULL DEFAULT '0',
+  `q31` smallint(2) NOT NULL DEFAULT '0',
+  `q32` smallint(2) NOT NULL DEFAULT '0',
+  `q33` smallint(2) NOT NULL DEFAULT '0',
+  `q34` smallint(2) NOT NULL DEFAULT '0',
+  `q35` smallint(2) NOT NULL DEFAULT '0',
+  `q36` smallint(2) NOT NULL DEFAULT '0',
+  `q37` smallint(2) NOT NULL DEFAULT '0',
+  `q38` smallint(2) NOT NULL DEFAULT '0',
+  `q39` smallint(2) NOT NULL DEFAULT '0',
+  `q40` smallint(2) NOT NULL DEFAULT '0',
+  `q41` smallint(2) NOT NULL DEFAULT '0',
+  `q42` smallint(2) NOT NULL DEFAULT '0',
+  `q43` smallint(2) NOT NULL DEFAULT '0',
+  `q44` smallint(2) NOT NULL DEFAULT '0',
+  `q45` smallint(2) NOT NULL DEFAULT '0',
+  `q46` smallint(2) NOT NULL DEFAULT '0',
+  `q47` smallint(2) NOT NULL DEFAULT '0',
+  `q48` smallint(2) NOT NULL DEFAULT '0',
+  `q49` smallint(2) NOT NULL DEFAULT '0',
+  `q50` smallint(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`candidate_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cse_033_phy_response`
+-- Dumping data for table `cse_033_math_response`
 --
 
-INSERT INTO `cse_033_phy_response` (`candidate_id`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, `q9`, `q10`, `q11`, `q12`, `q13`, `q14`, `q15`, `q16`, `q17`, `q18`, `q19`, `q20`, `q21`, `q22`, `q23`, `q24`, `q25`, `q26`, `q27`, `q28`, `q29`, `q30`) VALUES
-('cse_033_001', -2, 6, -2, 3, 3, 3, 4, 1, 2, 3, 5, 5, 5, 5, 6, 5, 5, 6, 6, 5, -3, 4, 5, 6, 5, 5, 5, 2, 2, 2);
+INSERT INTO `cse_033_math_response` (`candidate_id`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, `q9`, `q10`, `q11`, `q12`, `q13`, `q14`, `q15`, `q16`, `q17`, `q18`, `q19`, `q20`, `q21`, `q22`, `q23`, `q24`, `q25`, `q26`, `q27`, `q28`, `q29`, `q30`, `q31`, `q32`, `q33`, `q34`, `q35`, `q36`, `q37`, `q38`, `q39`, `q40`, `q41`, `q42`, `q43`, `q44`, `q45`, `q46`, `q47`, `q48`, `q49`, `q50`) VALUES
+('cse_033_001', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_002', 3, 3, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_003', 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_004', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_005', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_006', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_007', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_008', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_009', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_010', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_011', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_012', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_013', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_014', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_015', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_016', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_017', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_018', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_019', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_020', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_021', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_022', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_023', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_024', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('cse_033_025', 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cse_033_math_result`
+--
+
+DROP TABLE IF EXISTS `cse_033_math_result`;
+CREATE TABLE IF NOT EXISTS `cse_033_math_result` (
+  `candidate_id` varchar(32) NOT NULL,
+  `candidate_name` varchar(128) NOT NULL,
+  `attempted` smallint(3) NOT NULL DEFAULT '0',
+  `correct` smallint(3) NOT NULL DEFAULT '0',
+  `incorrect` smallint(3) NOT NULL DEFAULT '0',
+  `score` smallint(3) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`candidate_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cse_033_math_result`
+--
+
+INSERT INTO `cse_033_math_result` (`candidate_id`, `candidate_name`, `attempted`, `correct`, `incorrect`, `score`) VALUES
+('cse_033_001', 'Pankajsree Das', 3, 1, 2, 2),
+('cse_033_002', 'Pankaj Das', 4, 0, 4, -4),
+('cse_033_003', 'Pankajsree Das', 5, 2, 3, 5),
+('cse_033_004', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_005', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_006', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_007', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_008', 'Pankaj Das', 3, 2, 1, 7),
+('cse_033_009', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_010', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_011', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_012', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_013', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_014', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_015', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_016', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_017', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_018', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_019', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_020', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_021', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_022', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_023', 'Pankajsree Das', 0, 0, 0, 0),
+('cse_033_024', 'Pankaj Das', 0, 0, 0, 0),
+('cse_033_025', 'Pankajsree Das', 3, 0, 3, -3);
 
 -- --------------------------------------------------------
 
@@ -286,7 +402,7 @@ CREATE TABLE IF NOT EXISTS `exam` (
 --
 
 INSERT INTO `exam` (`exam_code`, `exam_name`, `sec_count`, `exam_password`, `is_active`, `added_on`) VALUES
-('cse_033', 'CSE Test', 1, 'cse@123', 1, '2019-01-20 18:40:52');
+('cse_033', 'Screening Test', 1, '123', 1, '2019-02-06 23:16:56');
 
 -- --------------------------------------------------------
 
@@ -311,7 +427,7 @@ CREATE TABLE IF NOT EXISTS `sec_details` (
 --
 
 INSERT INTO `sec_details` (`sec_id`, `sec_name`, `tot_ques`, `time_mins`, `positive`, `negative`, `note`) VALUES
-('cse_033_phy', 'Physics', 30, 60, 4, 1, '');
+('cse_033_math', 'Mathematics', 50, 60, 4, 1, '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

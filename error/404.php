@@ -51,18 +51,19 @@
     </head>
 
     <body>
+        <?= $header ?>
         <main>
             <div class="container text-center">
                 <h1>Error 404 - Page Not Found</h1>
                 <div class="row">
                   <div class="col-12">
-                    <p>If you think what you&apos;re looking for should be here, please <a href="<?= __ROOT__ ?>/web-team">contact</a> the site developer.</p>
-                    <p><a href="<?= __ROOT__ ?>/index">Click Here</a>, to go to the Homepage of <span class="bold-sp-2">NIT Agartala</span></p>
+                    <p>If you think what you&apos;re looking for should be here, please contact the site developer.</p>
+                    <p><a href="<?= __ROOT__ ?>">Click Here</a>, to go to Login page</p>
                   </div>
                 </div>
             </div>
         </main>
-
+        <?= $footer ?>
         <?= $script ?>
     </body>
 </html>

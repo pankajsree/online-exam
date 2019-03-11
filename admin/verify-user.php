@@ -57,7 +57,7 @@
                                 <a class="default-links" href="<?= __EMAIL_ROOT__ ?>/admin/login">Click Here</a>, to Login to your account.
                             </div>
                         </main>
-
+                        <?= $footer ?>
                         <?= $script ?>
                     </body>
                 </html>

@@ -37,5 +37,6 @@
     <?php
         }
     ?>
+    <?= $footer ?>
     </body>
 </html>

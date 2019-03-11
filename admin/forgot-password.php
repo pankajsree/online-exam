@@ -99,6 +99,7 @@
                 </div>
             </div>
         </main>
+        <?= $footer ?>
         <?= $script ?>
     </body>
 </html>

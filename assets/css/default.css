@@ -16,6 +16,12 @@ html, body {
   font-family: var(--font-2);
 }
 
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-1);
 }
@@ -139,4 +145,16 @@ button {
   font-weight: bold;
   letter-spacing: 1px;
   font-size: 1.1rem;
+}
+
+footer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.75);
 }

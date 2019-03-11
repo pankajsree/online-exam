@@ -82,7 +82,7 @@
                 </form>
             </div>
         </main>
-
+        <?= $footer ?>
         <?= $script ?>
         <script>
             $("#password-form").submit(function(event) {

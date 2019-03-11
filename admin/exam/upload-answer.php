@@ -113,7 +113,7 @@
                 </div>
             </form>
         </main>
-
+        <?= $footer ?>
         <?= $script ?>
         <script>
 

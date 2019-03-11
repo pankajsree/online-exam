@@ -1,9 +1,9 @@
 # INDIAN timezone
 SetEnv TZ Asia/Kolkata
 
-ErrorDocument 404 /nita/error/404.php
-ErrorDocument 403 /nita/error/403.php
-ErrorDocument 500 /nita/error/500.php
+ErrorDocument 404 /online-exam/error/404.php
+ErrorDocument 403 /online-exam/error/403.php
+ErrorDocument 500 /online-exam/error/500.php
 
 #Alternate default index page
 DirectoryIndex login.php
